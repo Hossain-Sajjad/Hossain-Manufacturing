@@ -6,7 +6,7 @@ import Footer from './Pages/Shared/Footer';
 
 function App() {
   return (
-    <div className='app'>
+    <div className=''>
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>} />

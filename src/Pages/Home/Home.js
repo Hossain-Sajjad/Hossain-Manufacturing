@@ -1,9 +1,10 @@
 import React from 'react';
+import TopBanner from './TopBanner/TopBanner';
 
 const home = () => {
     return (
         <div>
-            <h1>Hossain Manufacturing Ltd.</h1>
+            <TopBanner></TopBanner>
         </div>
     );
 };
