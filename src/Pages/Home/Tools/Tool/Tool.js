@@ -3,7 +3,6 @@ import React from 'react';
 const Tool = () => {
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
-
             <div class="card-body items-center text-center">
                 <h2 class="card-title">Shoes!</h2>
                 <figure class="px-10 pt-3">
