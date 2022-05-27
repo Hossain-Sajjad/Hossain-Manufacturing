@@ -11,7 +11,7 @@ const firebaseConfig = {
     projectId: "hossain-manufacturing",
     storageBucket: "hossain-manufacturing.appspot.com",
     messagingSenderId: "705635540362",
-    appId: "1:705635540362:web:f809d0a40f3e6005f4bc73"
+    appId: "1:705635540362:web:f809d0a40f3e6005f4bc73",
 };
 
 // Initialize Firebase

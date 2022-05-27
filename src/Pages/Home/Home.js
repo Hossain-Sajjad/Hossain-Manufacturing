@@ -3,7 +3,7 @@ import Reviews from './Reviews/Reviews';
 import Tools from './Tools/Tools';
 import TopBanner from './TopBanner/TopBanner';
 
-const home = () => {
+const Home = () => {
     return (
         <div>
             <TopBanner></TopBanner>
@@ -13,4 +13,4 @@ const home = () => {
     );
 };
 
-export default home;
+export default Home;
