@@ -38,6 +38,13 @@ const Header = () => {
             <div className="navbar-end mr-10">
                 {
                     user ?
+                        <p className='mr-10 text-primary font-semibold'>{user.displayName}</p>
+                        :
+                        " "
+
+                }
+                {
+                    user ?
                         <button onClick={handleSignOut}>Sign Out</button>
                         :
                         <Link to="/login">Login</Link>
