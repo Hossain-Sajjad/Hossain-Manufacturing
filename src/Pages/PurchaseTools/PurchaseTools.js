@@ -26,6 +26,7 @@ const PurchaseTools = () => {
         else {
             const purchasedData = {
                 email: user.email,
+                productName: tool.name,
                 productId: tool._id,
                 address: data.address,
                 phoneNumber: data.number,
