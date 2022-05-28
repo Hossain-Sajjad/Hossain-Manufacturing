@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
 
 const PurchaseTools = () => {
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { id } = useParams();
     const [tool, setTool] = useState('');
@@ -17,14 +17,37 @@ const PurchaseTools = () => {
             .then(res => res.json())
             .then(data => setTool(data))
     }, [])
-
+    // console.log(user)
     const onSubmit = data => {
         const quantity = parseInt(data.quantity)
         if (quantity < tool.minimumQuantity || quantity > tool.availableQuantity) {
             toast.error("Order quantity can't be greater than available quantity or lesser than minimum quantity");
         }
         else {
-            console.log(data);
+            const purchasedData = {
+                email: user.email,
+                productId: tool._id,
+                address: data.address,
+                phoneNumber: data.number,
+                quantity: data.quantity
+            }
+            fetch('http://localhost:5000/purchase', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(purchasedData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        toast('Thanks')
+                    }
+                    else {
+                        toast.error('Already have')
+                    }
+                });
+
         }
     }
 
@@ -53,7 +76,7 @@ const PurchaseTools = () => {
                     <input placeholder="quantity" {...register("quantity", { required: true })} className="input input-bordered input-primary w-full max-w-xs my-2" />
                     <br />
                     {errors.exampleRequired && <span>This field is required</span>}
-                    <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Add Tools" />
+                    <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Purchase" />
                 </form>
                 <ToastContainer></ToastContainer>
             </div>
