@@ -23,6 +23,9 @@ const Header = () => {
                         <li><Link to="/">Purchase</Link></li>
                         <li><Link to="/">Blog</Link></li>
                         <li><Link to="/">My Portfolio</Link></li>
+                        {
+                            user && <li><Link to="/dashboard">Dashboard</Link></li>
+                        }
                     </ul>
                 </div>
                 <Link to="/" className="lg:flex hidden btn btn-ghost normal-case text-xl">Hossain Manufacturing Ltd.</Link>
@@ -33,14 +36,14 @@ const Header = () => {
                     <li><Link to="/">Purchase</Link></li>
                     <li><Link to="/">Blog</Link></li>
                     <li><Link to="/">My Portfolio</Link></li>
+                    {
+                        user && <li><Link to="/dashboard">Dashboard</Link></li>
+                    }
                 </ul>
             </div>
             <div className="navbar-end mr-10">
                 {
-                    user ?
-                        <p className='mr-10 text-primary font-semibold'>{user.displayName}</p>
-                        :
-                        " "
+                    user && <p className='mr-10 text-primary font-semibold'>{user.displayName}</p>
 
                 }
                 {
