@@ -16,18 +16,19 @@ const MyOrders = () => {
     }, [user])
     return (
         <div>
-            <h2>my orders {myTools.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>Product name</th>
                             <th>Order Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myTools.map(a => <tr>
+                            myTools.map((a, index) => <tr>
+                                <td>{index + 1}</td>
                                 <td>{a.productName}</td>
                                 <td>{a.quantity}</td>
                             </tr>)
