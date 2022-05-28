@@ -22,10 +22,10 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard'>My Profile</Link></li>
                     {admin ? <>
-                        <li><Link to="/dashboard/users">Manage Order</Link></li>
-                        <li><Link to="/dashboard/addDoctor">Add a Product</Link></li>
-                        <li><Link to="/dashboard/addDoctor">Manage Product</Link></li>
-                        <li><Link to="/dashboard/manageDoctor">Make Admin</Link></li>
+                        <li><Link to="/dashboard/manageOrder">Manage Order</Link></li>
+                        <li><Link to="/dashboard/addProduct">Add a Product</Link></li>
+                        <li><Link to="/dashboard/manageProduct">Manage Product</Link></li>
+                        <li><Link to="/dashboard/makeAdmin">Make Admin</Link></li>
                     </> : <>
                         <li><Link to='/dashboard/myorders'>My Orders</Link></li>
                         <li><Link to='/dashboard/addreview'>Add Review</Link></li>
