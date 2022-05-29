@@ -15,6 +15,9 @@ import ManageOrder from './Pages/Dashboard/ManageOrder';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin';
+import Blog from './Pages/Blog/Blog';
+import Portfolio from './Pages/Portfolio/Portfolio';
+import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
         <Route path="login" element={<Login></Login>} />
         <Route path="register" element={<Register></Register>} />
         <Route path="tool" element={<AddTools></AddTools>} />
+        <Route path="portfolio" element={<Portfolio></Portfolio>} />
+        <Route path="blog" element={<Blog></Blog>} />
         <Route path="home/:id" element={
           <RequireAuth>
             <PurchaseTools></PurchaseTools>
@@ -43,6 +48,7 @@ function App() {
           <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path="*" element={<NotFound></NotFound>} />
         </Route>
       </Routes>
     </div>

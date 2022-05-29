@@ -42,10 +42,10 @@ const PurchaseTools = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.success) {
-                        toast('Thanks')
+                        toast('Thanks for your order')
                     }
                     else {
-                        toast.error('Already have')
+                        toast.error('You already have a order of this product.')
                     }
                 });
 
@@ -74,7 +74,7 @@ const PurchaseTools = () => {
                     <br />
                     <input placeholder="number" {...register("number", { required: true })} className="input input-bordered input-primary w-full max-w-xs my-2" />
                     <br />
-                    <input placeholder="quantity" {...register("quantity", { required: true })} className="input input-bordered input-primary w-full max-w-xs my-2" />
+                    <input type="number" defaultValue={tool.minimumQuantity} placeholder="quantity" {...register("quantity", { required: true })} className="input input-bordered input-primary w-full max-w-xs my-2" />
                     <br />
                     {errors.exampleRequired && <span>This field is required</span>}
                     <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Purchase" />
