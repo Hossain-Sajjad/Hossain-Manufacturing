@@ -32,14 +32,14 @@ const MyProfile = () => {
     return (
         <div>
             <div class="hero my-8 bg-base-200">
-                <div class="hero-content text-center">
+                <div class="hero-content">
                     <div class="max-w-md">
-                        <h1 class="text-2xl font-bold">Name: {user.displayName}</h1>
-                        <p class="py-6">Email: {user.email}</p>
-                        {profile[0]?.education && <p class="py-6">Education: {profile[0]?.education}</p>}
-                        {profile[0]?.location && <p class="py-6">Location: {profile[0]?.location}</p>}
-                        {profile[0]?.phone && <p class="py-6">Phone: {profile[0]?.phone}</p>}
-                        {profile[0]?.socialLink && <p class="py-6">Social Link: {profile[0]?.socialLink}</p>}
+                        <h1 class="text-3xl font-bold text-primary">{user.displayName}</h1>
+                        <p class="py-6"><strong>Email :</strong> {user.email}</p>
+                        {profile[0]?.education && <p class="py-6"><strong>Education :</strong> {profile[0]?.education}</p>}
+                        {profile[0]?.location && <p class="py-6"><strong>Location :</strong> {profile[0]?.location}</p>}
+                        {profile[0]?.phone && <p class="py-6"><strong>Phone :</strong> {profile[0]?.phone}</p>}
+                        {profile[0]?.socialLink && <p class="py-6"><strong>Social Link :</strong>{profile[0]?.socialLink}</p>}
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ const MyProfile = () => {
                                             {...register("socialLink")}
                                         />
                                     </div>
-                                    <input className='btn btn-primary w-full max-w-xs mt-8 text-white' type="submit" value="Add Review" />
+                                    <input className='btn btn-primary w-full max-w-xs mt-8 text-white' type="submit" value="Update Profile" />
                                 </form>
                             </div>
                         </div>

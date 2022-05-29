@@ -8,18 +8,18 @@ const Tool = ({ tool }) => {
         navigate(`/home/${id}`);
     }
     return (
-        <div class="card w-96 bg-base-100 shadow-xl">
-            <div class="card-body items-center text-center">
-                <h2 class="card-title">{name}</h2>
-                <figure class="px-10 pt-3">
-                    <img src={img} alt="Shoes" class="rounded-xl" />
-                </figure>
-                <p>{description}</p>
-                <p>Minimum Quantity: {minimumQuantity}</p>
-                <p>Available Quantity: {availableQuantity}</p>
-                <p>Price Per Unit {price}$</p>
-                <div class="card-actions">
-                    <button class="btn btn-primary" onClick={() => navigateToItemUpdate(tool._id)}>Purchase</button>
+        <div>
+            <div class="card w-96 bg-base-100 shadow-xl">
+                <figure><img src={img} alt="Shoes" /></figure>
+                <div class="card-body">
+                    <h2 class="card-title">{name}</h2>
+                    <p><strong>Price Per Unit : </strong>{price} $</p>
+                    <p><strong>Avaialble Quantity : </strong>{availableQuantity}</p>
+                    <p><strong>Minimum Order Quantity : </strong>{minimumQuantity}</p>
+                    <p className='truncate'><strong>Product Description : </strong>{description}</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-primary text-white" onClick={() => navigateToItemUpdate(tool._id)}>Purchase</button>
+                    </div>
                 </div>
             </div>
         </div>

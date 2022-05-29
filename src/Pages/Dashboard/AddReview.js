@@ -1,16 +1,21 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../firebase.init';
+
 
 const AddReview = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [user, loading] = useAuthState(auth);
     const onSubmit = data => {
         console.log(data);
         if (data.ratings < 1 || data.ratings > 5) {
             toast.error('Ratings have to be between 1 to 5')
         }
         else {
+            data.name = user.displayName;
             fetch("http://localhost:5000/review", {
                 method: 'POST',
                 headers: {
