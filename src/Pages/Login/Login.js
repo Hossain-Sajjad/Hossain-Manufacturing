@@ -58,9 +58,8 @@ const Login = () => {
         <div className='flex h-screen justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Login</h2>
+                    <h2 className="text-center text-primary text-2xl font-bold">Login</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
-
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -111,7 +110,7 @@ const Login = () => {
                         </div>
 
                         {signInError}
-                        <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                        <input className='btn btn-primary w-full max-w-xs text-white' type="submit" value="Login" />
                     </form>
                     <p className='text-center'><small>New to this site <Link className='text-primary' to="/register">Create New Account</Link></small></p>
                     <p className='text-center'><small>Forget password? <Link to='/login' onClick={resetPassword} className='text-decoration-none text-primary ms-2'>Reset Password</Link></small></p>
@@ -119,7 +118,7 @@ const Login = () => {
                     <div className="divider">OR</div>
                     <button
                         onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"
+                        className="btn btn-outline btn-primary"
                     >Continue with Google</button>
                     <ToastContainer></ToastContainer>
                 </div>
