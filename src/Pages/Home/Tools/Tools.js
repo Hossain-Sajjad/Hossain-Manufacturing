@@ -11,7 +11,7 @@ const Tools = () => {
 
     return (
         <div>
-            <h2 className='text-primary text-3xl text-center mt-10 font-semibold'>Our Products:</h2>
+            <h2 className='text-primary text-3xl text-center my-10 font-semibold'>Our Products:</h2>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                 {
 

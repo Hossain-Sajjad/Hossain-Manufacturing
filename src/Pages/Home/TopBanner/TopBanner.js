@@ -7,8 +7,9 @@ const TopBanner = () => {
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
-                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                    <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <h1 className="mb-5 text-5xl font-bold">Best Electronics Tools</h1>
+                    <p className="mb-5">Get your desire electronics tool with best deal in the market.
+                        We provide premium quality tools in excelent condition.</p>
                     <button className="btn btn-primary text-white">Get Started</button>
                 </div>
             </div>

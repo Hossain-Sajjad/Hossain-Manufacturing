@@ -13,10 +13,10 @@ const Tool = ({ tool }) => {
                 <figure><img src={img} alt="Shoes" /></figure>
                 <div class="card-body">
                     <h2 class="card-title">{name}</h2>
+                    <p className='truncate'>{description}</p>
                     <p><strong>Price Per Unit : </strong>{price} $</p>
                     <p><strong>Avaialble Quantity : </strong>{availableQuantity}</p>
                     <p><strong>Minimum Order Quantity : </strong>{minimumQuantity}</p>
-                    <p className='truncate'><strong>Product Description : </strong>{description}</p>
                     <div class="card-actions justify-end">
                         <button class="btn btn-primary text-white" onClick={() => navigateToItemUpdate(tool._id)}>Purchase</button>
                     </div>

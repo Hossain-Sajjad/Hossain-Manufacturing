@@ -1,6 +1,5 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings/build/star-ratings';
-import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const Review = ({ review }) => {
