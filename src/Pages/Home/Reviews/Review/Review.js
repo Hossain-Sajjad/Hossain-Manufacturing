@@ -1,18 +1,24 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-
+import StarRatings from 'react-star-ratings/build/star-ratings';
+import { SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const Review = ({ review }) => {
 
     const { description, ratings, name } = review;
     return (
-        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+        <div className="card h-[250px] bg-base-100 shadow-xl my-12">
             <div className="card-body text-center">
                 <p>{description}</p>
                 <div className="text-center">
                     <h4 className='text-xl text-primary'>{name}</h4>
-                    <p>{ratings}</p>
-
+                    <StarRatings
+                        rating={parseInt(ratings)}
+                        numberOfStars={5}
+                        starDimension="20px"
+                        starRatedColor="goldenrod"
+                        starSpacing="15px"
+                    />
                 </div>
             </div>
         </div>
