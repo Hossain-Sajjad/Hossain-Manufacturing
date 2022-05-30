@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Topbanner.css'
 
 const TopBanner = () => {
@@ -10,7 +11,7 @@ const TopBanner = () => {
                     <h1 className="mb-5 text-5xl font-bold">Best Electronics Tools</h1>
                     <p className="mb-5">Get your desire electronics tool with best deal in the market.
                         We provide premium quality tools in excelent condition.</p>
-                    <button className="btn btn-primary text-white">Get Started</button>
+                    <Link to="/portfolio" className="btn btn-primary text-white">Get Started</Link>
                 </div>
             </div>
         </div>

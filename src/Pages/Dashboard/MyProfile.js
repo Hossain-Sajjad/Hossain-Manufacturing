@@ -3,11 +3,12 @@ import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    // const [profile, setProfile] = useState('');
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
 
     const { data: profile, isLoading, refetch } = useQuery('myProfile', () =>
         fetch(`https://arcane-waters-84543.herokuapp.com/userprofile?email=${user.email}`).then(res =>
@@ -19,19 +20,12 @@ const MyProfile = () => {
         return <Loading></Loading>
     }
 
-    // useEffect(() => {
-    //     const url = `https://arcane-waters-84543.herokuapp.com/userprofile?email=${user.email}`;
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setProfile(data))
-    // }, [user])
-
     console.log(profile);
     const onSubmit = data => {
         data.email = user.email;
         data.name = user.displayName;
         console.log(data);
-        fetch('http://localhost:5000/userprofile', {
+        fetch('https://arcane-waters-84543.herokuapp.com/userprofile', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -39,7 +33,9 @@ const MyProfile = () => {
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-        refetch()
+        refetch();
+        reset();
+        toast.success('Profile updated successfully.')
     }
     return (
         <div>
@@ -72,7 +68,7 @@ const MyProfile = () => {
                                             type="education"
                                             placeholder="Education"
                                             className="input input-bordered w-full max-w-xs"
-                                            {...register("education")}
+                                            {...register("education", { required: true })}
                                         />
                                     </div>
                                     <div className="form-control w-full max-w-xs">
@@ -83,7 +79,7 @@ const MyProfile = () => {
                                             type="location"
                                             placeholder="Location"
                                             className="input input-bordered w-full max-w-xs"
-                                            {...register("location")}
+                                            {...register("location", { required: true })}
                                         />
                                     </div>
                                     <div className="form-control w-full max-w-xs">
@@ -94,7 +90,7 @@ const MyProfile = () => {
                                             type="phone"
                                             placeholder="Phone"
                                             className="input input-bordered w-full max-w-xs"
-                                            {...register("phone")}
+                                            {...register("phone", { required: true })}
                                         />
                                     </div>
                                     <div className="form-control w-full max-w-xs">
@@ -105,11 +101,12 @@ const MyProfile = () => {
                                             type="socialLink"
                                             placeholder="Social Link"
                                             className="input input-bordered w-full max-w-xs"
-                                            {...register("socialLink")}
+                                            {...register("socialLink", { required: true })}
                                         />
                                     </div>
                                     <input className='btn btn-primary w-full max-w-xs mt-8 text-white' type="submit" value="Update Profile" />
                                 </form>
+                                <ToastContainer></ToastContainer>
                             </div>
                         </div>
                     </div>

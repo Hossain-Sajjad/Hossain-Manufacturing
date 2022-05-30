@@ -11,6 +11,12 @@ const Portfolio = () => {
                         <p class="pt-3">sunshinems58@gmail.com</p>
                         <p class="pt-3">Bsc in CSE (4<sup>th</sup> year), International Islamic University Chittagong</p>
                         <p class="pt-3"><strong>Skills: </strong>html5, css3, bootstrap, tailwind, media query, javascript, react, node.js, mongodb</p>
+                        <h3 className='text-2xl font-bold mt-4'>Some of my works</h3>
+                        <ul>
+                            <li><a class="link link-hover link-primary" target='_blank' rel='noreferrer' href='https://hossain-electronics.web.app/'>Hossain Electronics</a></li>
+                            <li><a class="link link-hover link-primary" target='_blank' rel='noreferrer' href='https://incandescent-brigadeiros-cffa93.netlify.app/'>Fitness Friend</a></li>
+                            <li><a class="link link-hover link-primary" target='_blank' rel='noreferrer' href='https://hossain-manufacturing.web.app/'>Hossain Manufacturing</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

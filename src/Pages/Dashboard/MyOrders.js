@@ -3,14 +3,17 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyOrders = () => {
     const [myTools, setMyTools] = useState([]);
-    const [user] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate()
 
-
     useEffect(() => {
+        if (loading) {
+            return <Loading></Loading>
+        }
         if (user) {
             fetch(`https://arcane-waters-84543.herokuapp.com/purchase?email=${user.email}`, {
                 method: 'GET',
