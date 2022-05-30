@@ -29,7 +29,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to="/" className="lg:flex hidden btn btn-ghost normal-case text-xl">Hossain Manufacturing Ltd.</Link>
-                <Link to="/" className="lg:hidden btn btn-ghost normal-case text-xl">Hossain Manufacturing</Link>
+                <Link to="/" className="lg:hidden btn btn-ghost normal-case text-xl pl-0">Hossain Manufacturing</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

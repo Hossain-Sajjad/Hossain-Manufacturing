@@ -4,7 +4,6 @@ const useToken = user => {
     const [token, setToken] = useState('');
     useEffect(() => {
         const email = user?.user?.email;
-        console.log(user, email)
         const currentUser = { email: email };
         if (email) {
             fetch(`https://arcane-waters-84543.herokuapp.com/user/${email}`, {

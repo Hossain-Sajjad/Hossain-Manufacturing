@@ -20,7 +20,6 @@ const MyProfile = () => {
         return <Loading></Loading>
     }
 
-    console.log(profile);
     const onSubmit = data => {
         data.email = user.email;
         data.name = user.displayName;
