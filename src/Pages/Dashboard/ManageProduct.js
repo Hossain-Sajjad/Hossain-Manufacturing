@@ -28,7 +28,7 @@ const ManageProduct = () => {
                         <tr>
                             <th></th>
                             <th>Product name</th>
-                            <th>Order Quantity</th>
+                            <th>Delete Product</th>
                         </tr>
                     </thead>
                     <tbody>

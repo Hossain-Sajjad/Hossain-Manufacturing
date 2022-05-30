@@ -15,8 +15,8 @@ const MakeAdmin = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>User Email</th>
+                            <th>Make Admin</th>
                         </tr>
                     </thead>
                     <tbody>
