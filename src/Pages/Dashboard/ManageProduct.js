@@ -30,9 +30,9 @@ const ManageProduct = () => {
                     <tbody>
                         {
                             products && products.map((a, index) => <tr>
-                                <td>{index + 1}</td>
+                                <td className='text-primary'>{index + 1}</td>
                                 <td>{a.name}</td>
-                                <td className='btn btn-primary text-white' onClick={() => handleDlt(a._id)}>X</td>
+                                <td className='text-primary' onClick={() => handleDlt(a._id)}>X</td>
                             </tr>)
                         }
 
