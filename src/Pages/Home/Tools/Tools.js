@@ -10,7 +10,7 @@ const Tools = () => {
     }, [])
 
     return (
-        <div>
+        <div className='lg:mx-[25px]'>
             <h2 className='text-primary text-3xl text-center my-10 font-semibold'>Our Products:</h2>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4'>
                 {

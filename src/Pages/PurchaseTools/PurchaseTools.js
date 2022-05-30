@@ -53,8 +53,8 @@ const PurchaseTools = () => {
     }
 
     return (
-        <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-0 mt-16'>
-            <div class="card lg:max-w-screen-lg w-96 bg-base-100 shadow-xl ml-32">
+        <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-5 mt-16'>
+            <div class="card lg:max-w-screen-lg lg:w-96 bg-base-100 shadow-xl lg:ml-32">
                 <div class="card-body items-center text-center">
                     <h2 class="card-title">{tool.name}</h2>
                     <figure class="px-10 pt-3">
@@ -67,7 +67,7 @@ const PurchaseTools = () => {
                 </div>
             </div>
             <div>
-                <form onSubmit={handleSubmit(onSubmit)} className="">
+                <form onSubmit={handleSubmit(onSubmit)} className="ml-20">
                     <input placeholder="name" value={user?.displayName} {...register("name", { required: true })} className="input input-bordered input-primary w-full max-w-xs my-2" />
                     <br />
                     <input placeholder="address" {...register("address", { required: true })} className="input input-bordered input-primary w-full max-w-xs my-2" />

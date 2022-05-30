@@ -1,25 +1,37 @@
-import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    const [profile, setProfile] = useState('');
+    // const [profile, setProfile] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    useEffect(() => {
-        const url = `https://arcane-waters-84543.herokuapp.com/userprofile?email=${user.email}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setProfile(data))
-    }, [user])
+    const { data: profile, isLoading, refetch } = useQuery('myProfile', () =>
+        fetch(`https://arcane-waters-84543.herokuapp.com/userprofile?email=${user.email}`).then(res =>
+            res.json()
+        )
+    )
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    // useEffect(() => {
+    //     const url = `https://arcane-waters-84543.herokuapp.com/userprofile?email=${user.email}`;
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setProfile(data))
+    // }, [user])
+
     console.log(profile);
     const onSubmit = data => {
         data.email = user.email;
         data.name = user.displayName;
         console.log(data);
-        fetch('https://arcane-waters-84543.herokuapp.com/userprofile', {
+        fetch('http://localhost:5000/userprofile', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -27,14 +39,14 @@ const MyProfile = () => {
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+        refetch()
     }
     return (
         <div>
             <div class="hero my-8 bg-base-200">
                 <div class="hero-content">
                     <div class="max-w-md">
-                        <h1 class="text-3xl font-bold text-primary">{user.displayName}</h1>
+                        <h1 class="text-3xl font-bold text-primary">{user?.displayName}</h1>
                         <p class="py-6"><strong>Email :</strong> {user.email}</p>
                         {profile[0]?.education && <p class="py-6"><strong>Education :</strong> {profile[0]?.education}</p>}
                         {profile[0]?.location && <p class="py-6"><strong>Location :</strong> {profile[0]?.location}</p>}
