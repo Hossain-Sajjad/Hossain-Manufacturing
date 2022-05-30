@@ -48,8 +48,8 @@ function App() {
           <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
           <Route path='manageProduct' element={<ManageProduct></ManageProduct>}></Route>
           <Route path='makeAdmin' element={<MakeAdmin></MakeAdmin>}></Route>
-          <Route path="*" element={<NotFound></NotFound>} />
         </Route>
+        <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
     </div>
   );

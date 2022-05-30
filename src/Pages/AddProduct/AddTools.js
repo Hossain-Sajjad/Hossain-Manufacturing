@@ -5,7 +5,7 @@ const AddTools = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch("http://localhost:5000/tool", {
+        fetch("https://arcane-waters-84543.herokuapp.com/tool", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -1,3 +1,22 @@
+# Hossain Manufacturing
+
+live site link [Hossain Manufacturing](https://hossain-manufacturing.web.app/).
+
+
+* A Full Stack Project.
+* Used in this Project: 
+    * React
+    * firebase
+    * react router
+    * node
+    * express
+    * mongodb
+* used nested route 
+* user and admin different functionality.
+* Email & Google authentication based.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

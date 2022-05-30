@@ -7,7 +7,7 @@ import auth from '../../firebase.init';
 
 
 const AddReview = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const [user, loading] = useAuthState(auth);
     const onSubmit = data => {
         console.log(data);
@@ -16,7 +16,7 @@ const AddReview = () => {
         }
         else {
             data.name = user.displayName;
-            fetch("http://localhost:5000/review", {
+            fetch("https://arcane-waters-84543.herokuapp.com/review", {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -27,6 +27,7 @@ const AddReview = () => {
                 .then(d => {
                     console.log(d)
                 })
+            reset();
             toast.success('Review added successfully.')
         }
     }

@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ManageProduct = () => {
     const [products, setProducts] = useState('');
     useEffect(() => {
-        fetch("http://localhost:5000/tool")
+        fetch("https://arcane-waters-84543.herokuapp.com/tool")
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
 
     const handleDlt = id => {
-        fetch(`http://localhost:5000/tool/${id}`, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        const confirmation = window.confirm("are you sure, you want to delete this product...?")
+        if (confirmation) {
+            fetch(`https://arcane-waters-84543.herokuapp.com/tool/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => toast.warning("Product deleted successfully."))
+        }
     }
 
     return (
@@ -32,10 +36,10 @@ const ManageProduct = () => {
                             products && products.map((a, index) => <tr>
                                 <td className='text-primary'>{index + 1}</td>
                                 <td>{a.name}</td>
-                                <td className='text-primary' onClick={() => handleDlt(a._id)}>X</td>
+                                <td className='btn text-primary' onClick={() => handleDlt(a._id)}>X</td>
                             </tr>)
                         }
-
+                        <ToastContainer></ToastContainer>
                     </tbody>
                 </table>
             </div>

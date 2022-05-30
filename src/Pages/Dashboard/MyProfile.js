@@ -9,7 +9,7 @@ const MyProfile = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
-        const url = `http://localhost:5000/userprofile?email=${user.email}`;
+        const url = `https://arcane-waters-84543.herokuapp.com/userprofile?email=${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProfile(data))
@@ -19,7 +19,7 @@ const MyProfile = () => {
         data.email = user.email;
         data.name = user.displayName;
         console.log(data);
-        fetch('http://localhost:5000/userprofile', {
+        fetch('https://arcane-waters-84543.herokuapp.com/userprofile', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

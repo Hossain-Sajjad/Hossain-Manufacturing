@@ -8,11 +8,11 @@ import auth from '../../firebase.init';
 
 const PurchaseTools = () => {
     const [user] = useAuthState(auth);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const { id } = useParams();
     const [tool, setTool] = useState('');
     useEffect(() => {
-        const url = `http://localhost:5000/tool/${id}`;
+        const url = `https://arcane-waters-84543.herokuapp.com/tool/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -32,7 +32,7 @@ const PurchaseTools = () => {
                 phoneNumber: data.number,
                 quantity: data.quantity
             }
-            fetch('http://localhost:5000/purchase', {
+            fetch('https://arcane-waters-84543.herokuapp.com/purchase', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -48,7 +48,7 @@ const PurchaseTools = () => {
                         toast.error('You already have a order of this product.')
                     }
                 });
-
+            reset();
         }
     }
 

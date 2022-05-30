@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import User from './User';
 
 const MakeAdmin = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/user")
+        fetch("https://arcane-waters-84543.herokuapp.com/user")
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
@@ -20,10 +21,10 @@ const MakeAdmin = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((a, index) => <tr>
-                                <td>{index + 1}</td>
-                                <td>{a.email}</td>
-                            </tr>)
+                            users.map(user => <User
+                                key={user._id}
+                                user={user}
+                            ></User>)
                         }
 
                     </tbody>
